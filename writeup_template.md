@@ -87,13 +87,13 @@ I verified that my perspective transform was working as expected by drawing the 
 
 ####4. Describe how (and identify where in your code) you identified lane-line pixels and fit their positions with a polynomial?
 
-Then I did some other stuff and fit my lane lines with a 2nd order polynomial kinda like this:
+You can see in section Sliding Windows Search of the "./examples/example.ipynb"  the functions `sliding_windows_search()` that perform the look up of the pixels based based on a histogram of the image, `extract_pixel_positions()` that get the pixels positions of the lines and `get_poly_fit()` to get the fit my lane lines with a 2nd order polynomial like this:
 
 ![alt text][image5]
 
 ####5. Describe how (and identify where in your code) you calculated the radius of curvature of the lane and the position of the vehicle with respect to center.
 
-I did this in lines # through # in my code in `my_other_file.py`
+I extracted a new polynomial fit for real world coordinates in meters and calculated the radio with this new values.  You can see in section Measuring Curvature in "./examples/example.ipynb".
 
 ####6. Provide an example image of your result plotted back down onto the road such that the lane area is identified clearly.
 
@@ -115,5 +115,7 @@ Here's a [link to my video result](./project_video.mp4)
 
 ####1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?
 
-Here I'll talk about the approach I took, what techniques I used, what worked and why, where the pipeline might fail and how I might improve it if I were going to pursue this project further.  
+The most difficult problems to solve where the different shadows on the road, the different colors of the road, and the cars that pass very close and could count as a line in the histogram, this could distort the line identification.
+
+i could improve the line identification in the histogram and also implement a better approach using more the mean values in the image processing. 
 
