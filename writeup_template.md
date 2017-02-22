@@ -18,10 +18,10 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image0]: ./images/undistort_output.jpg "Undistorted chess"
-[image1]: ./images/undistort_example.jpg "Undistorted"
+[image0]: ./images/undistort_output.png "Undistorted chess"
+[image1]: ./images/undistorted_example.jpg "Undistorted"
 [image2]: ./images/combined_binary_example.jpg "Combined Binary"
-[image3]: ./images/sliding_windows.jpg "Binary Example"
+[image3]: ./images/sliding_windows.png "Binary Example"
 [image4]: ./images/warped_example.jpg "Warp Example"
 [image5]: ./images/final_result.jpg "Final Result"
 [video1]: ./output.mp4 "Video"
