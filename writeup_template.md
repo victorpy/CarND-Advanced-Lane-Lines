@@ -18,10 +18,10 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image0]: ./images/undistort_output.png "Undistorted"
-[image1]: ./images/undistort_example.png "Undistorted"
-[image2]: ./images/combined_binary.jpg "Combined Binary"
-[image3]: ./images/binary_combo_example.jpg "Binary Example"
+[image0]: ./images/undistort_output.jpg "Undistorted chess"
+[image1]: ./images/undistort_example.jpg "Undistorted"
+[image2]: ./images/combined_binary_example.jpg "Combined Binary"
+[image3]: ./images/sliding_windows.jpg "Binary Example"
 [image4]: ./images/warped_example.jpg "Warp Example"
 [image5]: ./images/final_result.jpg "Final Result"
 [video1]: ./output.mp4 "Video"
@@ -54,7 +54,7 @@ To demonstrate this step, I will describe how I apply the distortion correction 
 ![alt text][image1]
 ####2. Describe how (and identify where in your code) you used color transforms, gradients or other methods to create a thresholded binary image.  Provide an example of a binary image result.
 
-I used a combination of color and gradient thresholds to generate a binary image (thresholding function is in the section Create thresholded binary image in the notebook located in "./examples/example.ipynb"  ). I converted to HLS and and separated the S channel. With that and gradient threshold i obtain the best results. Here's an example of my output for this step.  
+I used a combination of color and gradient thresholds to generate a binary image (thresholding function is in the section "Create thresholded binary image" in the notebook located in "./examples/example.ipynb" ). I converted to HLS and and separated the S channel. With that and gradient threshold i obtain the best results. Here's an example of my output for this step.  
 
 ![alt text][image2]
 
@@ -86,13 +86,13 @@ This resulted in the following source and destination points:
 
 I verified that my perspective transform was working as expected by drawing the `src` and `dst` points onto a test image and its warped counterpart to verify that the lines appear parallel in the warped image.
 
-![alt text][image3]
+![alt text][image4]
 
 ####4. Describe how (and identify where in your code) you identified lane-line pixels and fit their positions with a polynomial?
 
 You can see in section Sliding Windows Search of the "./examples/example.ipynb"  the functions `sliding_windows_search()` that perform the look up of the pixels based based on a histogram of the image, `extract_pixel_positions()` that get the pixels positions of the lines and `get_poly_fit()` to get the fit my lane lines with a 2nd order polynomial like this:
 
-![alt text][image4]
+![alt text][image3]
 
 ####5. Describe how (and identify where in your code) you calculated the radius of curvature of the lane and the position of the vehicle with respect to center.
 
@@ -120,6 +120,7 @@ Here's a [link to my video result](./output.mp4)
 
 The most difficult problems to solve where the different shadows on the road, the different colors of the road, and the cars that pass very close and could count as a line in the histogram, this could distort the line identification.
 
-i could improve the line identification in the histogram and also implement a better approach using more the mean values in the image processing. 
+i could improve the line identification in the histogram playing with the parameters of sliding windows search. Also implement a better approach using more the mean values of fit polynoms and x,y pixels values of the line in the processing of the image processing. This could avoid sudden changes in the lines detection, when there are external factors affecting the correct identification of the lines. Like i mention before, cars that pass to close to the lines, different colors of the road, and shadows.
+ 
 
 
