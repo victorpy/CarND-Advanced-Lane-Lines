@@ -50,7 +50,7 @@ I then used the output `objpoints` and `imgpoints` to compute the camera calibra
 ###Pipeline (single images)
 
 ####1. Provide an example of a distortion-corrected image.
-To demonstrate this step, I will describe how I apply the distortion correction to one of the test images like this one:
+I apply the distortion correction to an image, to test the correction obtained in the previous camera calibration. The resulting images is this:
 ![alt text][image1]
 ####2. Describe how (and identify where in your code) you used color transforms, gradients or other methods to create a thresholded binary image.  Provide an example of a binary image result.
 
@@ -60,7 +60,7 @@ I used a combination of color and gradient thresholds to generate a binary image
 
 ####3. Describe how (and identify where in your code) you performed a perspective transform and provide an example of a transformed image.
 
-The code for my perspective transform includes a function called `warp()`, which you can see in the section Perspective Transform with thresholded image of the IPython notebook.  The `warper()` function takes as inputs an image (`img`), as well as source (`src`) and destination (`dst`) points.  I chose the hardcode the source and destination points in the following manner:
+The code for my perspective transform includes a function called `warp()`, which you can see in the section Perspective Transform with thresholded image of the IPython notebook.  The `warp()` function takes as inputs an image (`img`).  I chose the hardcode the source and destination points inside the function in the following manner:
 
 ```
 src = np.float32(
